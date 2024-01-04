@@ -82,7 +82,14 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <label for="fname" class="col-sm-6 text-start control-label col-form-label text-sm">Unit Price</label>
-                                        <input type="number" class="form-control" name="unit_price[]" step="0.01" required />
+                                   
+                                        <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">
+                  ₱
+                </span>
+                <input type="number" class="form-control" class="form-control" name="unit_price[]" step="0.01" required placeholder="Enter Amount" aria-label="Input group example" aria-describedby="basic-addon1">
+              </div>
+                                        
                                         <div class="invalid-feedback">
                                             Please enter the unit price.
                                         </div>
