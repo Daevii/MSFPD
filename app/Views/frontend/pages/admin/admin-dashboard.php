@@ -132,7 +132,7 @@
                                     foreach ($invoice_pending as $invoice_list) : ?>
 
                                         <tr>
-                                            <td><?php echo $invoice_list['receipt']; ?></td>
+                                            <td><?php echo $invoice_list['receipt_num']; ?></td>
                                             <td><?php echo $invoice_list['department']; ?></td>
                                             <td>
                                                 <?php
