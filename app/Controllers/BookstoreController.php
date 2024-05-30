@@ -165,6 +165,13 @@ class BookstoreController extends BaseController
             $email->setMessage($message, 'text/html');
             $email->send();
         }
+
+        return $this->response->setJSON([
+            'message' => 'Successfully Claimed',
+            'status' => 'success',
+            'data' => $invoicedata
+        ]);
+
     }
 
 
@@ -179,8 +186,10 @@ class BookstoreController extends BaseController
 
         $bookstore = session()->get('name');
         $data = [
+            'id' => $this->request->getPost('id'),
             'receipt' => $this->request->getPost('receipt_num'),
             'department' => $this->request->getPost('department'),
+            'department_id' => $this->request->getPost('department_id'),
             'name' => $this->request->getPost('requestor'),
             'email' => $this->request->getPost('email'),
 
@@ -219,5 +228,17 @@ class BookstoreController extends BaseController
         ];
 
         return $this->response->setJSON($response);
+    }
+
+    public function delete_order()
+    {
+        $requisition = new Requisition();
+        $requisition_delete_id = $this->request->getPost('order_id');
+        $requisition->delete($requisition_delete_id);
+
+        return $this->response->setJSON([
+            'message' => 'Successfully Deleted',
+            'status' => 'success',
+        ]);
     }
 }
